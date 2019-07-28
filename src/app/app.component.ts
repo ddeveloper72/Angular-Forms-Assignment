@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  suggestUserName() {
-    const suggestedName = 'Superuser';
-  }
+  subServices = ['Basic', 'Advanced', 'Pro'];
+  defaultService = 'Advanced';
+  @ViewChild('subscriptionForm', {static: false}) sgnForm: NgForm;
+
+  onSubmit() {
+    console.log(this.sgnForm.value);
+    }
 }
